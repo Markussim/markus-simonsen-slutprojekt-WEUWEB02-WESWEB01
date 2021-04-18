@@ -5,7 +5,7 @@
 ### Teknikner jag kommer använda:
 - NodeJS
 - postgres
-Kan bli fler beroende på vad som behövs
+- Kan bli fler beroende på vad som behövs
 
 ### Sitens syfte:
 - En sida där man enkelt kan ladda upp sina bilder.
