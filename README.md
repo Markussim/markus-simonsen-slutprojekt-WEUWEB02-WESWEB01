@@ -4,7 +4,7 @@
 
 ### Teknikner jag kommer använda:
 - NodeJS
-- MongoDB
+- postgres
 Kan bli fler beroende på vad som behövs
 
 ### Sitens syfte:
