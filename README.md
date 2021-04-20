@@ -34,3 +34,7 @@ https://wireframe.cc/Lpunqv
 
 #### Login
 https://wireframe.cc/A5JvNJ
+
+### Flödesschema för ej inloggad användare
+![image](https://user-images.githubusercontent.com/33492046/115363915-2bc5a580-a1c3-11eb-86c5-46bc739cfb49.png)
+
