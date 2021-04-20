@@ -20,6 +20,9 @@
 ### Persona
 - Kevin 19 år. Han har många vänner och vill dela bilder med de, men att maila alla bilder är jobbigt. Med hjälp av min sida så kan han dela bilderna mycket enklare.
 
+### Scenario
+Om man inte vet hur man ska dela sina bilder är detta ett bra val för att göra det
+
 ### Sidor
 ![image](https://user-images.githubusercontent.com/33492046/115359942-72b19c00-a1bf-11eb-8146-98ff3e134eee.png)
 Alla inlägg är sparade i databasen enligt databas diagrammet
