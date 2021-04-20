@@ -25,7 +25,8 @@ Kevin har sedan länge använt mail för att skicka bilder till sina vänner eft
 
 ### Sidor
 ![image](https://user-images.githubusercontent.com/33492046/115359942-72b19c00-a1bf-11eb-8146-98ff3e134eee.png)
-Alla inlägg är sparade i databasen enligt databas diagrammet
+- Alla inlägg är sparade i databasen enligt databas diagrammet
+- Alla sidor kommer ha till största delen gråa färger med letta blå inslag för att skapa en profetionall kännsla
 
 ### Databas diagram
 https://drawsql.app/marksism-space/diagrams/social-media
