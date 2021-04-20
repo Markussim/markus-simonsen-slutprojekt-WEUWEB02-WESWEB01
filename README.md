@@ -1,6 +1,6 @@
 # Markus Simonsen TE18D Planering
 
-### Jag vill göra en instagram/twitter/allmän scocial media clone.
+### Jag vill göra en instagram/twitter/allmän social media klon.
 
 ### Teknikner jag kommer använda:
 - NodeJS
@@ -32,7 +32,7 @@ https://drawsql.app/marksism-space/diagrams/social-media
 
 ### Wireframe för Sidor
 
-Se wireframes.md
+Se (Wireframes.md)[https://github.com/Markussim/markus-simonsen-slutprojekt-WEUWEB02-WESWEB01/blob/main/wireframes.md]
 
 ### Flödesschema för ej inloggad användare
 ![image](https://user-images.githubusercontent.com/33492046/115363915-2bc5a580-a1c3-11eb-86c5-46bc739cfb49.png)
