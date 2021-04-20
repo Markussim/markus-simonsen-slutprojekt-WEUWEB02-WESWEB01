@@ -2,7 +2,7 @@
 
 ### Jag vill göra en instagram/twitter/allmän social media klon.
 
-### Teknikner jag kommer använda:
+### Tekniker jag kommer använda:
 - NodeJS
 - postgres
 - Kan bli fler beroende på vad som behövs
@@ -11,22 +11,22 @@
 - En sida där man enkelt kan ladda upp sina bilder.
 - Man ska lätt kunna titta på andras bilder i ett sort flöde.
 
-### Egna vikitga punkter
+### Egna viktiga punkter
 - Alla inlägg ska kunna visas i samma flöde.
 
 ### Målgrupp
-- Användare som är bild intresserade eller bara vill dela bilder med vänner och familj. Ca 13-25 år. Behöver inte vara teknikintreserade
+- Användare som är bildintresserade eller bara vill dela bilder med vänner och familj. Ca 13-25 år. Behöver inte vara teknikintreserade
 
 ### Persona
-- Kevin 19 år. Han har många vänner och vill dela bilder med de, men att maila alla bilder är jobbigt. Med hjälp av min sida så kan han dela bilderna mycket enklare.
+- Kevin 19 år. Han har många vänner och vill dela bilder med dem, men att maila alla bilder är jobbigt. Med hjälp av min sida så kan han dela bilderna mycket enklare.
 
 ### Scenario
-Kevin har sedan länge använt mail för att skicka bilder till sina vänner eftersom han är mycket rädd om sin integritet. Han har därför undvikt sidor så som instagram och twitter. Men när han genom https://marksism.space hittar denna sida så han han lungt dela sina bilder utan integritetsproblem.
+Kevin har sedan länge använt mail för att skicka bilder till sina vänner eftersom han är mycket rädd om sin integritet. Han har därför undvikt sidor så som instagram och twitter. Men när han genom https://marksism.space hittar denna sida så kan han lungt dela sina bilder utan integritetsproblem.
 
 ### Sidor
 ![image](https://user-images.githubusercontent.com/33492046/115359942-72b19c00-a1bf-11eb-8146-98ff3e134eee.png)
 - Alla inlägg är sparade i databasen enligt databas diagrammet
-- Alla sidor kommer ha till största delen gråa färger med letta blå inslag för att skapa en profetionall kännsla
+- Alla sidor kommer ha till största delen gråa färger med lätta blå inslag för att skapa en profetionall kännsla
 
 ### Databas diagram
 https://drawsql.app/marksism-space/diagrams/social-media
