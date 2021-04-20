@@ -22,6 +22,7 @@
 
 ### Sidor
 ![image](https://user-images.githubusercontent.com/33492046/115359942-72b19c00-a1bf-11eb-8146-98ff3e134eee.png)
+Alla inlägg är sparade i databasen enligt databas diagrammet
 
 ### Databas diagram
 https://drawsql.app/marksism-space/diagrams/social-media
