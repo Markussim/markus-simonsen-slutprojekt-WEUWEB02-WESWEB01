@@ -1,8 +1,8 @@
 --@block
 CREATE TABLE Users (
     id SERIAL PRIMARY KEY,
-    Username VARCHAR(31),
-    Pass varchar(255)
+    Username VARCHAR(31) NOT NULL,
+    Pass varchar(255) NOT NULL
 );
 
 --@block
@@ -11,9 +11,9 @@ DROP TABLE Users;
 --@block
 CREATE TABLE Posts (
     id SERIAL PRIMARY KEY,
-    Title VARCHAR(255),
-    PostText TEXT,
-    Userid INT,
+    Title VARCHAR(255) NOT NULL,
+    PostText TEXT NOT NULL,
+    Userid INT NOT NULL,
     CONSTRAINT fk_user FOREIGN KEY(Userid) REFERENCES Users(id)
 );
 
@@ -23,9 +23,9 @@ DROP TABLE posts;
 --@block
 CREATE TABLE Comments (
     id SERIAL PRIMARY KEY,
-    Post int,
-    CommentText TEXT,
-    Userid INT,
+    Post int NOT NULL,
+    CommentText TEXT NOT NULL,
+    Userid INT NOT NULL,
     CONSTRAINT fk_user FOREIGN KEY(Userid) REFERENCES Users(id),
     CONSTRAINT fk_post FOREIGN KEY(Post) REFERENCES Posts(id)
 );
@@ -33,8 +33,8 @@ CREATE TABLE Comments (
 --@block
 CREATE TABLE Subscriptions (
     id SERIAL PRIMARY KEY,
-    Subscriber int,
-    Subscription int,
+    Subscriber int NOT NULL,
+    Subscription int NOT NULL,
     CONSTRAINT fk_subscriber FOREIGN KEY(Subscriber) REFERENCES Users(id),
     CONSTRAINT fk_subscription FOREIGN KEY(Subscription) REFERENCES Users(id)
 );
@@ -42,18 +42,18 @@ CREATE TABLE Subscriptions (
 --@block
 CREATE TABLE Likes (
     id SERIAL PRIMARY KEY,
-    Userid int,
-    Post int,
+    Userid int NOT NULL,
+    Post int NOT NULL,
     CONSTRAINT fk_user FOREIGN KEY(Userid) REFERENCES Users(id),
     CONSTRAINT fk_post FOREIGN KEY(Post) REFERENCES Posts(id)
 );
 
 --@block
-INSERT INTO users (Username) VALUES 
-('Markus'),
-('Svant'),
-('Lisse'),
-('Antenn')
+INSERT INTO users (Username, Pass) VALUES 
+('Markus', 'Hmm'),
+('Svant', 'Hmm'),
+('Lisse', 'Hmm'),
+('Antenn', 'Hmm')
 
 --@block
 SELECT * FROM Users;
