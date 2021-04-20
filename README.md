@@ -25,3 +25,6 @@
 
 ### Databas diagram
 https://drawsql.app/marksism-space/diagrams/social-media
+
+### Wireframe för hemsidan
+https://wireframe.cc/Lpunqv
