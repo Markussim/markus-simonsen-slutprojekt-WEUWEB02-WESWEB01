@@ -4,7 +4,12 @@ const express = require("express");
 const app = express();
 const { Pool, Client } = require("pg");
 const port = process.env.PORT || 3000;
-const getall = fs.readFileSync("./sql/getall.sql", { encoding: "utf8", flag: "r" });
+const getall = fs.readFileSync("./sql/getall.sql", {
+  encoding: "utf8",
+  flag: "r",
+});
+const client = __dirname + "/client/";
+app.use(express.static("static"));
 
 const pool = new Pool({
   user: process.env.POSTGRESUSR,
@@ -13,7 +18,16 @@ const pool = new Pool({
   password: process.env.POSTGRESPASS,
 });
 
-app.get("/", async (req, res) => {
-    res.send(await (await pool.query(getall)).rows)
+app.get("/getall", async (req, res) => {
+  res.send(await (await pool.query(getall)).rows);
 });
+
+app.get("/placeholderlogin", async (req, res) => {
+  res.sendFile(client + "login.html");
+});
+
+app.get("/placeholderregister", async (req, res) => {
+  res.send(await (await pool.query(getall)).rows);
+});
+
 app.listen(port, () => console.log(`Server listening on port ${port}!`));
