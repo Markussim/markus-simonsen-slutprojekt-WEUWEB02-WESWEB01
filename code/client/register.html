@@ -9,19 +9,28 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
 
     <script src="hash.js" type="module"></script>
-    <script src="login.js" type="module" defer></script>
+    <script src="register.js" type="module" defer></script>
   </head>
   <body>
-    <form id="loginForm">
-      <input type="text" placeholder="Username" id="username" name="username" />
+    <form id="registerForm">
+      <input type="text" placeholder="username" name="username" id="username" />
+      <br />
       <input
         type="password"
-        placeholder="Password"
-        id="password"
+        placeholder="password"
         name="password"
+        id="password"
+      />
+      <br />
+      <input
+        type="password"
+        placeholder="Confirm Password"
+        name="ConfirmPassword"
+        id="passwordConfirm"
       />
       <p id="errorText"></p>
-      <input type="submit" value="Log In" />
+      <p id="infoText"></p>
+      <input type="submit" value="Register" />
     </form>
   </body>
 </html>

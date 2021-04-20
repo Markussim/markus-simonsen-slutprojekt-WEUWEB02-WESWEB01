@@ -2,7 +2,7 @@ function registerUser(username, password, errorBox, infoBox) {
   let request = new XMLHttpRequest();
   let name = username;
   let pass = CryptoJS.MD5(password + name);
-  request.open("POST", "/register", true);
+  request.open("POST", "/registerPost", true);
   request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   request.send(`name=${name}&password=${pass}`);
   request.onreadystatechange = function () {
@@ -26,7 +26,7 @@ function loginUser(username, password, errorBox) {
   let request = new XMLHttpRequest();
   let name = username;
   let pass = CryptoJS.MD5(password + name);
-  request.open("POST", "/login", true);
+  request.open("POST", "/loginPost", true);
   request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   request.send(`name=${name}&password=${pass}`);
   request.onreadystatechange = function () {

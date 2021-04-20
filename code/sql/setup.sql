@@ -1,7 +1,7 @@
 --@block
 CREATE TABLE Users (
     id SERIAL PRIMARY KEY,
-    Username VARCHAR(31) NOT NULL,
+    Username VARCHAR(31) NOT NULL UNIQUE,
     Pass varchar(255) NOT NULL
 );
 
