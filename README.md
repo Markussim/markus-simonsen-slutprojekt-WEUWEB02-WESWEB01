@@ -21,7 +21,7 @@
 - Kevin 19 år. Han har många vänner och vill dela bilder med de, men att maila alla bilder är jobbigt. Med hjälp av min sida så kan han dela bilderna mycket enklare.
 
 ### Scenario
-Om man inte vet hur man ska dela sina bilder är detta ett bra val för att göra det
+Kevin har sedan länge använt mail för att skicka bilder till sina vänner eftersom han är mycket rädd om sin integritet. Han har därför undvikt sidor så som instagram och twitter. Men när han genom https://marksism.space hittar denna sida så han han lungt dela sina bilder utan integritetsproblem.
 
 ### Sidor
 ![image](https://user-images.githubusercontent.com/33492046/115359942-72b19c00-a1bf-11eb-8146-98ff3e134eee.png)
