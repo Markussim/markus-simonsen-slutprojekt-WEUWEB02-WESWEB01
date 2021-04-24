@@ -32,11 +32,12 @@ function loginUser(username, password, errorBox) {
   request.onreadystatechange = function () {
     // This is ugly and I want to change it
     let urlToLogin =
-      window.location.protocol + "//" + window.location.host + "/login";
+      window.location.protocol + "//" + window.location.host + "/loginPost";
     if (request.responseURL == urlToLogin) {
       errorArea.innerText = "Username or Password is incorrect";
     } else {
-      window.location = "/getall";
+      errorArea.innerText = "Username and Password is correct";
+      //window.location = "/getall";
     }
   };
 }
