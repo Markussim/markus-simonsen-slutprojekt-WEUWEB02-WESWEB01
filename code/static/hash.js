@@ -36,7 +36,7 @@ function loginUser(username, password, errorBox) {
     if (request.responseURL == urlToLogin) {
       errorArea.innerText = "Username or Password is incorrect";
     } else {
-      window.location = "/auth";
+      window.location = "/getall";
     }
   };
 }
