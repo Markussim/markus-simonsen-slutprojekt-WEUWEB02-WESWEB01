@@ -20,7 +20,7 @@ function initialize(passport, checkUser) {
         return done(null, false, { message: logininFailMessage });
       }
     } catch (e) {
-      console.log("Broke")
+      console.log("Broke");
       return done(e);
     }
   };

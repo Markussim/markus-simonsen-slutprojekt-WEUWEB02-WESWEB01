@@ -8,6 +8,7 @@ const passport = require("passport");
 const flash = require("express-flash");
 const session = require("express-session");
 const passportInit = require("./passport-config");
+var SessionStore = require("./libs/session-sql")(session);
 
 const getall = fs.readFileSync("./sql/getall.sql", {
   encoding: "utf8",
@@ -22,24 +23,40 @@ const login = fs.readFileSync("./sql/login.sql", {
   flag: "r",
 });
 const client = __dirname + "/client/";
+
+const databaseLogin = {
+  user: process.env.POSTGRESUSR,
+  host: process.env.POSTGRESHOST,
+  database: process.env.POSTGRESDATABASE,
+  password: process.env.POSTGRESPASS,
+};
+
+const pool = new Pool(databaseLogin);
+
+var options = {
+  client: "pg",
+  connection: databaseLogin,
+  table: "sessions",
+  expires: 365 * 24 * 60 * 60 * 1000, // 1 year in ms
+};
+
+var sessionStore = new SessionStore(options)
+
 app.use(express.static("static"));
 app.use(express.urlencoded({ extended: true }));
 app.use(
   require("express-session")({
     secret: "keyboard cat",
+    store: sessionStore,
     resave: false,
     saveUninitialized: false,
   })
 );
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
 
-const pool = new Pool({
-  user: process.env.POSTGRESUSR,
-  host: process.env.POSTGRESHOST,
-  database: process.env.POSTGRESDATABASE,
-  password: process.env.POSTGRESPASS,
-});
+
 
 passportInit(passport, async (userName, password) => {
   return await (await pool.query(login, [userName, password])).rows;
@@ -63,7 +80,7 @@ app.post(
   passport.authenticate("local", {
     successRedirect: "/",
     failureRedirect: "/placeholderlogin",
-    failureFlash: false,
+    failureFlash: true,
   })
 );
 
