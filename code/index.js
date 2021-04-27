@@ -98,4 +98,4 @@ function checkNotAuthenticated(req, res, next) {
   next();
 }
 
-app.listen(port, () => console.log(`Server listening on port ${port}!`));
+if(process.argv[2] != "test") app.listen(port, () => console.log(`Server listening on port ${port}!`));
