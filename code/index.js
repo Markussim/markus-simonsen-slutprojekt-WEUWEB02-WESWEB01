@@ -40,7 +40,7 @@ var options = {
   expires: 365 * 24 * 60 * 60 * 1000, // 1 year in ms
 };
 
-var sessionStore = new SessionStore(options)
+var sessionStore = new SessionStore(options);
 
 app.use(express.static("static"));
 app.use(express.urlencoded({ extended: true }));
@@ -55,8 +55,6 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
-
-
 
 passportInit(passport, async (userName, password) => {
   return await (await pool.query(login, [userName, password])).rows;
@@ -98,4 +96,5 @@ function checkNotAuthenticated(req, res, next) {
   next();
 }
 
-if(process.argv[2] != "test") app.listen(port, () => console.log(`Server listening on port ${port}!`));
+if (process.argv[2] != "test")
+  app.listen(port, () => console.log(`Server listening on port ${port}!`));
