@@ -7,24 +7,33 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
 
     <script src="hash.js" type="module"></script>
-    <script src="login.js" type="module" defer></script>
+    <script src="register.js" type="module" defer></script>
   </head>
   <body>
     <%- include('./nav.ejs') %>
 
-    <!-- <form id="loginForm">
-      <input type="text" placeholder="Username" id="username" name="username" />
+    <!-- <form id="registerForm">
+      <input type="text" placeholder="username" name="username" id="username" />
+      <br />
       <input
         type="password"
-        placeholder="Password"
-        id="password"
+        placeholder="password"
         name="password"
+        id="password"
+      />
+      <br />
+      <input
+        type="password"
+        placeholder="Confirm Password"
+        name="ConfirmPassword"
+        id="passwordConfirm"
       />
       <p id="errorText"></p>
-      <input type="submit" value="Log In" />
+      <p id="infoText"></p>
+      <input type="submit" value="Register" />
     </form> -->
     <div id="center">
-      <form id="loginForm">
+      <form id="registerForm">
         <div class="form-group">
           <label for="exampleInputEmail1">Username</label>
           <input
@@ -45,7 +54,18 @@
             name="password"
           />
         </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="passwordConfirm"
+            placeholder="Confirm Password"
+            name="ConfirmPassword"
+          />
+        </div>
         <p id="errorText"></p>
+        <p id="infoText"></p>
 
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>

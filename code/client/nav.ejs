@@ -1,6 +1,10 @@
 <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
   <a class="navbar-brand" href="#">Marksism gram</a>
-  <% if (loggedIn) { %> <% } else { %>
+  <% if (loggedIn) { %>
+  <li class="nav-item">
+    <a class="nav-link" href="/post">Post</a>
+  </li>
+  <% } else { %>
   <li class="nav-item">
     <a class="nav-link" href="/placeholderlogin">Login</a>
   </li>

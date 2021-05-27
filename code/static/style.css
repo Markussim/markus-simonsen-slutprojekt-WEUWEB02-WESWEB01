@@ -2,6 +2,9 @@
   margin: 10px;
 }
 
+.card {
+}
+
 #center {
   display: flex;
   justify-content: center;
@@ -13,4 +16,8 @@ h1 {
 
 .navbar-brand {
   margin-left: 10px;
+}
+
+.card-title {
+  font-size: 30px;
 }

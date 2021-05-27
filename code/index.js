@@ -89,7 +89,9 @@ app.get("/", checkAuthenticated, async (req, res) => {
 });
 
 app.get("/post", checkAuthenticated, async (req, res) => {
-  res.sendFile(client + "post.html");
+  res.render(client + "post.ejs", {
+    loggedIn: req.user,
+  });
 });
 
 app.get("/getall", async (req, res) => {
@@ -103,7 +105,9 @@ app.get("/placeholderlogin", checkNotAuthenticated, async (req, res) => {
 });
 
 app.get("/placeholderregister", checkNotAuthenticated, async (req, res) => {
-  res.sendFile(client + "register.html");
+  res.render(client + "register.ejs", {
+    loggedIn: req.user,
+  });
 });
 
 app.post(
@@ -124,7 +128,7 @@ app.post("/registerPost", checkNotAuthenticated, async (req, res) => {
     res.status(500);
   }
 
-  res.send("Succsess");
+  res.status(201).send("Success");
 });
 
 app.post("/postPost", checkAuthenticated, async (req, res) => {

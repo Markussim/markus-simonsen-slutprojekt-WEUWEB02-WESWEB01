@@ -37,7 +37,7 @@ function loginUser(username, password, errorBox) {
       errorArea.innerText = "Username or Password is incorrect";
     } else {
       errorArea.innerText = "Username and Password is correct";
-      //window.location = "/getall";
+      window.location = "/";
     }
   };
 }
