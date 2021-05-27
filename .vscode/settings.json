@@ -9,6 +9,16 @@
             "database": "social",
             "username": "postgres",
             "password": "1"
+        },
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "social",
+            "database": "social",
+            "username": "postgres",
+            "password": "password"
         }
     ]
 }
