@@ -5,7 +5,7 @@ const login = fs.readFileSync("./sql/login.sql", {
   flag: "r",
 });
 
-function initialize(passport, checkUser) {
+function initialize(passport, checkUser, getUser) {
   const authenticateUser = async (userName, password, done) => {
     const logininFailMessage = "Incorrect username or password";
     let user = await checkUser(userName, password);
@@ -32,7 +32,8 @@ function initialize(passport, checkUser) {
   );
   passport.serializeUser((user, done) => done(null, user.username));
   passport.deserializeUser(async (userName, done) => {
-    return done(null, await checkUser(userName, passport));
+    //console.log(await checkUser(userName, passport));
+    return done(null, await getUser(userName));
   });
 }
 

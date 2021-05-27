@@ -23,6 +23,11 @@ const login = fs.readFileSync("./sql/login.sql", {
   flag: "r",
 });
 
+const getUser = fs.readFileSync("./sql/getUser.sql", {
+  encoding: "utf8",
+  flag: "r",
+});
+
 const post = fs.readFileSync("./sql/post.sql", {
   encoding: "utf8",
   flag: "r",
@@ -61,12 +66,17 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
-passportInit(passport, async (userName, password) => {
-  console.log(password);
-  let out = await (await pool.query(login, [userName, password])).rows;
-  //console.log(out[0]);
-  return out[0];
-});
+passportInit(
+  passport,
+  async (userName, password) => {
+    let out = await (await pool.query(login, [userName, password])).rows;
+    return out[0];
+  },
+  async (userName) => {
+    let out = await (await pool.query(getUser, [userName])).rows;
+    return out[0];
+  }
+);
 
 app.get("/getall", async (req, res) => {
   res.send(await (await pool.query(getall)).rows);
@@ -91,8 +101,13 @@ app.post(
 );
 
 app.post("/registerPost", checkNotAuthenticated, async (req, res) => {
-  console.log(req.body.password);
-  await pool.query(createuser, [req.body.name, req.body.password]);
+  //console.log(req.body.password);
+  try {
+    await pool.query(createuser, [req.body.name, req.body.password]);
+  } catch (error) {
+    res.status(500);
+  }
+
   res.send("Succsess");
 });
 
@@ -102,7 +117,7 @@ app.post("/postPost", checkNotAuthenticated, async (req, res) => {
 });
 
 function checkNotAuthenticated(req, res, next) {
-  console.log(req.user);
+  //console.log(req.user);
   if (req.isAuthenticated()) {
     return res.redirect("/getall");
   }
