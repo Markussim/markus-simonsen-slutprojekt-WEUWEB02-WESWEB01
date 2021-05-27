@@ -98,13 +98,13 @@ app.get("/getall", async (req, res) => {
   res.send(await (await pool.query(getall)).rows);
 });
 
-app.get("/placeholderlogin", checkNotAuthenticated, async (req, res) => {
+app.get("/login", checkNotAuthenticated, async (req, res) => {
   res.render(client + "login.ejs", {
     loggedIn: req.user,
   });
 });
 
-app.get("/placeholderregister", checkNotAuthenticated, async (req, res) => {
+app.get("/register", checkNotAuthenticated, async (req, res) => {
   res.render(client + "register.ejs", {
     loggedIn: req.user,
   });
@@ -115,7 +115,7 @@ app.post(
   checkNotAuthenticated,
   passport.authenticate("local", {
     successRedirect: "/",
-    failureRedirect: "/placeholderlogin",
+    failureRedirect: "/login",
     failureFlash: true,
   })
 );
@@ -152,7 +152,7 @@ function checkNotAuthenticated(req, res, next) {
 function checkAuthenticated(req, res, next) {
   //console.log(req.user);
   if (!req.isAuthenticated()) {
-    return res.redirect("/placeholderlogin");
+    return res.redirect("/login");
   }
   next();
 }
