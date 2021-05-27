@@ -22,6 +22,11 @@ const login = fs.readFileSync("./sql/login.sql", {
   encoding: "utf8",
   flag: "r",
 });
+
+const post = fs.readFileSync("./sql/post.sql", {
+  encoding: "utf8",
+  flag: "r",
+});
 const client = __dirname + "/client/";
 
 const databaseLogin = {
@@ -40,7 +45,7 @@ var options = {
   expires: 365 * 24 * 60 * 60 * 1000, // 1 year in ms
 };
 
-var sessionStore = new SessionStore(options)
+var sessionStore = new SessionStore(options);
 
 app.use(express.static("static"));
 app.use(express.urlencoded({ extended: true }));
@@ -56,10 +61,11 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
-
-
 passportInit(passport, async (userName, password) => {
-  return await (await pool.query(login, [userName, password])).rows;
+  console.log(password);
+  let out = await (await pool.query(login, [userName, password])).rows;
+  //console.log(out[0]);
+  return out[0];
 });
 
 app.get("/getall", async (req, res) => {
@@ -87,7 +93,12 @@ app.post(
 app.post("/registerPost", checkNotAuthenticated, async (req, res) => {
   console.log(req.body.password);
   await pool.query(createuser, [req.body.name, req.body.password]);
-  res.send(req.body.password);
+  res.send("Succsess");
+});
+
+app.post("/postPost", checkNotAuthenticated, async (req, res) => {
+  await pool.query(post, [req.body.title, req.body.desc]);
+  res.send("Succsess");
 });
 
 function checkNotAuthenticated(req, res, next) {

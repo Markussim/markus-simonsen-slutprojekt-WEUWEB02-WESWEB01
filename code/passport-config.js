@@ -8,8 +8,7 @@ const login = fs.readFileSync("./sql/login.sql", {
 function initialize(passport, checkUser) {
   const authenticateUser = async (userName, password, done) => {
     const logininFailMessage = "Incorrect username or password";
-    let users = await checkUser(userName, password);
-    let user = users[0];
+    let user = await checkUser(userName, password);
     if (user == null) {
       return done(null, false, { message: logininFailMessage });
     }
