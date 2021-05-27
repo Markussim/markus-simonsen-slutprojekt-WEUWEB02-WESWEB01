@@ -10,6 +10,8 @@ const session = require("express-session");
 const passportInit = require("./passport-config");
 var SessionStore = require("./libs/session-sql")(session);
 
+app.set("view engine", "ejs");
+
 const getall = fs.readFileSync("./sql/getall.sql", {
   encoding: "utf8",
   flag: "r",
@@ -78,12 +80,26 @@ passportInit(
   }
 );
 
+app.get("/", checkAuthenticated, async (req, res) => {
+  console.log(req.user.name);
+  res.render(client + "home.ejs", {
+    userName: req.user.username,
+    loggedIn: req.user,
+  });
+});
+
+app.get("/post", checkAuthenticated, async (req, res) => {
+  res.sendFile(client + "post.html");
+});
+
 app.get("/getall", async (req, res) => {
   res.send(await (await pool.query(getall)).rows);
 });
 
 app.get("/placeholderlogin", checkNotAuthenticated, async (req, res) => {
-  res.sendFile(client + "login.html");
+  res.render(client + "login.ejs", {
+    loggedIn: req.user,
+  });
 });
 
 app.get("/placeholderregister", checkNotAuthenticated, async (req, res) => {
@@ -101,7 +117,7 @@ app.post(
 );
 
 app.post("/registerPost", checkNotAuthenticated, async (req, res) => {
-  //console.log(req.body.password);
+  console.log(req.body.password);
   try {
     await pool.query(createuser, [req.body.name, req.body.password]);
   } catch (error) {
@@ -111,15 +127,28 @@ app.post("/registerPost", checkNotAuthenticated, async (req, res) => {
   res.send("Succsess");
 });
 
-app.post("/postPost", checkNotAuthenticated, async (req, res) => {
-  await pool.query(post, [req.body.title, req.body.desc]);
-  res.send("Succsess");
+app.post("/postPost", checkAuthenticated, async (req, res) => {
+  try {
+    console.log(req.body.desc);
+    await pool.query(post, [req.body.title, req.body.desc, req.user.id]);
+    res.redirect("/");
+  } catch (error) {
+    res.status(500);
+  }
 });
 
 function checkNotAuthenticated(req, res, next) {
   //console.log(req.user);
   if (req.isAuthenticated()) {
-    return res.redirect("/getall");
+    return res.redirect("/");
+  }
+  next();
+}
+
+function checkAuthenticated(req, res, next) {
+  //console.log(req.user);
+  if (!req.isAuthenticated()) {
+    return res.redirect("/placeholderlogin");
   }
   next();
 }

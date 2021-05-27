@@ -1,0 +1,16 @@
+.card-body {
+  margin: 10px;
+}
+
+#center {
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+.navbar-brand {
+  margin-left: 10px;
+}

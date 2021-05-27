@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./import.ejs') %>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
+
+    <script src="hash.js" type="module"></script>
+    <script src="login.js" type="module" defer></script>
+  </head>
+  <body>
+    <%- include('./nav.ejs') %>
+
+    <form id="loginForm">
+      <input type="text" placeholder="Username" id="username" name="username" />
+      <input
+        type="password"
+        placeholder="Password"
+        id="password"
+        name="password"
+      />
+      <p id="errorText"></p>
+      <input type="submit" value="Log In" />
+    </form>
+
+
+    <form>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Username</label>
+        <input
+          type="text"
+          class="form-control"
+          id="username"
+          name="username"
+          placeholder="Your username here"
+        />
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          placeholder="Password"
+          name="password"
+        />
+      </div>
+      <p id="errorText"></p>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </body>
+</html>
